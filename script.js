@@ -9,6 +9,7 @@ const hierarchyData = [
     icon: "⭐",
     members: [
       { name: "Michael Haller", role: "Comandante Geral" }
+      { name: "Exemplo 02", role: "Comandante Geral" }
     ]
   },
   {
