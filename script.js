@@ -8,7 +8,7 @@ const hierarchyData = [
     description: "Comando Geral da Corporação",
     icon: "⭐",
     members: [
-      { name: "Michael Haller", role: "Comandante Geral" }
+      { name: "Michael Haller", role: "Comandante Geral" },
       { name: "Exemplo 02", role: "Comandante Geral" }
     ]
   },
