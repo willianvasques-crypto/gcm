@@ -67,7 +67,7 @@ const hierarchyData = [
       { name: "Jabson Tavares", role: "Sub Inspetor" },
       { name: "Niel Novais", role: "Sub Inspetor"},
       { name: "Wade Winston", role: "Sub Inspetor"},
-      { name: "*Arthur Almeida", role: "*Procurar Coord. do CAF"}
+      { name: "Arthur Almeida", role: "Sub Inspetor"},
     ]
   },
    {
