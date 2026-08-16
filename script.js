@@ -29,6 +29,14 @@ const hierarchyData = [
     ]
   },
   {
+    rank: "2ª Classe",
+    description: "Formação",
+    icon: "🎓",
+    members: [
+      { name: "Novo integrante", role: "Aluno" }
+    ]
+  },
+  {
     rank: "3ª Classe",
     description: "Efetivo operacional",
     icon: "👮",
