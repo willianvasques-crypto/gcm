@@ -6,15 +6,39 @@ const hierarchyData = [
   {
     rank: "Comandante Geral",
     description: "Comando Geral da Corporação",
-    icon: "⭐",
+    icon: "☫ ⁕",
     members: [
       { name: "Michael Haller", role: "Comandante Geral" }
     ]
   },
-  {
-    rank: "Inspetor de Agrupamento",
+   {
+    rank: "Sub Comandante Geral",
     description: "Coordenação e supervisão",
-    icon: "🛡️",
+    icon: "☫",
+    members: [
+      { name: "Willian Vasques", role: "Coordenador do CAF" }
+    ]
+  },
+    {
+    rank: "Inspetor Superintendente",
+    description: "Coordenação e supervisão",
+    icon: "☫ |||||",
+    members: [
+      { name: "Willian Vasques", role: "Coordenador do CAF" }
+    ]
+  },
+    {
+    rank: "Inspetor Agrupamento",
+    description: "Coordenação e supervisão",
+    icon: "☫ ||||",
+    members: [
+      { name: "Willian Vasques", role: "Coordenador do CAF" }
+    ]
+  },
+  {
+    rank: "Inspetor De Divisão",
+    description: "Coordenação e supervisão",
+    icon: "☫ |||",
     members: [
       { name: "Willian Vasques", role: "Coordenador do CAF" }
     ]
@@ -22,16 +46,48 @@ const hierarchyData = [
   {
     rank: "Inspetor",
     description: "Inspetoria",
-    icon: "🔰",
+    icon: "☫ ||",
     members: [
       { name: "Exemplo 01", role: "Inspetor" },
       { name: "Exemplo 02", role: "Inspetor" }
     ]
   },
   {
+    rank: "Sub Inspetor",
+    description: "Formação",
+    icon: "△ |",
+    members: [
+      { name: "Novo integrante", role: "Aluno" }
+    ]
+  },
+    {
+    rank: "Classe Especial",
+    description: "Formação",
+    icon: "❯❯❯❯",
+    members: [
+      { name: "Novo integrante", role: "Aluno" }
+    ]
+  },
+   {
+    rank: "Classe Distinta",
+    description: "Formação",
+    icon: "(❯❯❯",
+    members: [
+      { name: "Novo integrante", role: "Aluno" }
+    ]
+  },
+  {
+    rank: "1ª Classe",
+    description: "Formação",
+    icon: "|||",
+    members: [
+      { name: "Novo integrante", role: "Aluno" }
+    ]
+  },
+  {
     rank: "2ª Classe",
     description: "Formação",
-    icon: "🎓",
+    icon: "||",
     members: [
       { name: "Novo integrante", role: "Aluno" }
     ]
@@ -39,7 +95,7 @@ const hierarchyData = [
   {
     rank: "3ª Classe",
     description: "Efetivo operacional",
-    icon: "👮",
+    icon: "|",
     members: [
       { name: "Pedro Alvarenga", role: "3ª Classe" },
       { name: "Gustavo Henrique", role: "3ª Classe" }
