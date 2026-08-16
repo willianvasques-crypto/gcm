@@ -76,6 +76,7 @@ const hierarchyData = [
     icon: "❯❯❯❯",
     members: [
       { name: "Adoni Tavares", role: "Membro AFSU & Coord. IOPE" },
+            { name: "César Gomez", role: "Membro do AFSU"},
       { name: "Moreira Arruda", role: "Membro do CAF"}
     ]
   },
@@ -84,8 +85,7 @@ const hierarchyData = [
     description: "Formação",
     icon: "(❯❯❯",
     members: [
-      { name: "João Victor", role: "Est. IOPE" },
-      { name: "César Gomez", role: "Membro do AFSU"}
+      { name: "João Victor", role: "Est. IOPE" }
     ]
   },
   {
