@@ -71,21 +71,21 @@ const hierarchyData = [
     ]
   },
    {
-    rank: "Classe Distinta",
-    description: "Formação",
-    icon: "(❯❯❯",
-    members: [
-      { name: "João Victor", role: "Est. IOPE" },
-      { name: "César Gomez", role: "Membro do AFSU"}
-    ]
-  },
- {
     rank: "Classe Especial",
     description: "Formação",
     icon: "❯❯❯❯",
     members: [
       { name: "Adoni Tavares", role: "Membro AFSU & Coord. IOPE" },
       { name: "Moreira Arruda", role: "Membro do CAF"}
+    ]
+  },
+   {
+    rank: "Classe Distinta",
+    description: "Formação",
+    icon: "(❯❯❯",
+    members: [
+      { name: "João Victor", role: "Est. IOPE" },
+      { name: "César Gomez", role: "Membro do AFSU"}
     ]
   },
   {
