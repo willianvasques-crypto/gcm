@@ -3,57 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hierarquia - Guarda Municipal</title>
+  <meta name="theme-color" content="#07111f">
+  <title>GCM • Hierarquia & Efetivo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
   <header class="topbar">
     <div class="brand">
-      <div class="brand-icon"><img src="./fotos/gcm.png" alt="logo" height="20%" width="20%"></div>
+      <div class="brand-icon"><img src="./fotos/gcm.png" alt="GCM"></div>
       <div>
-        <h1>Guarda Municipal</h1>
-        <span>Hierarquia & Efetivo</span>
+        <h1>GUARDA MUNICIPAL</h1>
+        <span>Hierarquia & Efetivo Oficial</span>
       </div>
     </div>
-    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <div class="top-actions">
+      <div class="online"><i></i> Sistema online</div>
+      <button class="menu-btn" id="adminBtn" title="Área administrativa">⚙</button>
+    </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <div>
-        <span class="eyebrow">ORGANOGRAMA OFICIAL</span>
-        <h2>Hierarquia da Corporação</h2>
-        <p>Consulte patentes, cargos e integrantes da corporação.</p>
+      <div class="hero-copy">
+        <span class="eyebrow"><b></b> ORGANOGRAMA OFICIAL</span>
+        <h2>Hierarquia da <span>Corporação</span></h2>
+        <p>Consulte patentes, cargos e integrantes da Guarda Municipal em um só lugar.</p>
+        <div class="hero-meta">
+          <span>● Atualizado pelo CAF</span>
+          <span>● Acesso público</span>
+        </div>
       </div>
+
       <div class="stats">
-        <div class="stat"><strong id="totalMembers">0</strong><span>Integrantes</span></div>
-        <div class="stat"><strong id="totalRanks">0</strong><span>Patentes</span></div>
+        <div class="stat">
+          <span class="stat-icon">♙</span>
+          <div><strong id="totalMembers">0</strong><small>Integrantes</small></div>
+        </div>
+        <div class="stat">
+          <span class="stat-icon">★</span>
+          <div><strong id="totalRanks">0</strong><small>Patentes</small></div>
+        </div>
       </div>
     </section>
 
     <section class="toolbar">
       <div class="search">
-        <span>🔎</span>
-        <input id="searchInput" type="text" placeholder="Pesquisar por nome ou patente...">
+        <span>⌕</span>
+        <input id="searchInput" type="text" placeholder="Pesquisar nome, cargo ou patente..." autocomplete="off">
+        <kbd>CTRL K</kbd>
       </div>
       <select id="rankFilter">
         <option value="all">Todas as patentes</option>
       </select>
     </section>
 
+    <div class="result-bar">
+      <span id="resultText">Exibindo todo o efetivo</span>
+      <button id="clearSearch" class="clear-btn hidden">Limpar filtros ×</button>
+    </div>
+
     <section id="hierarchy" class="hierarchy"></section>
 
     <div id="emptyState" class="empty hidden">
-      <div>🔎</div>
+      <div>⌕</div>
       <h3>Nenhum resultado encontrado</h3>
       <p>Tente pesquisar outro nome ou patente.</p>
     </div>
   </main>
 
   <footer>
-    <span>Guarda Municipal • Sistema de Hierarquia</span>
-    <span id="year"></span>
+    <span>GUARDA MUNICIPAL • SISTEMA DE HIERARQUIA</span>
+    <span>© <b id="year"></b> • Acesso público</span>
   </footer>
+
+  <!-- LOGIN -->
+  <div class="modal hidden" id="loginModal">
+    <div class="modal-card login-card">
+      <button class="close-btn" data-close="loginModal">×</button>
+      <div class="modal-logo"><img src="./fotos/gcm.png" alt="GCM"></div>
+      <span class="modal-eyebrow">ÁREA RESTRITA</span>
+      <h2>Painel Administrativo</h2>
+      <p>Entre com suas credenciais para editar a hierarquia.</p>
+      <form id="loginForm">
+        <label>Usuário<input id="username" autocomplete="username" required placeholder="Digite o usuário"></label>
+        <label>Senha<input id="password" type="password" autocomplete="current-password" required placeholder="Digite a senha"></label>
+        <div id="loginError" class="form-error"></div>
+        <button class="primary-btn" type="submit">Entrar no painel →</button>
+      </form>
+      <small class="login-hint">Acesso padrão configurado para o administrador.</small>
+    </div>
+  </div>
+
+  <!-- ADMIN -->
+  <div class="modal hidden" id="adminModal">
+    <div class="modal-card admin-card">
+      <button class="close-btn" data-close="adminModal">×</button>
+      <div class="admin-head">
+        <div>
+          <span class="modal-eyebrow">ADMINISTRADOR</span>
+          <h2>Gerenciar Hierarquia</h2>
+          <p>Adicione, edite ou remova patentes e integrantes.</p>
+        </div>
+        <button id="logoutBtn" class="ghost-btn">Sair</button>
+      </div>
+
+      <div class="admin-grid">
+        <section class="editor-panel">
+          <div class="panel-title">
+            <div><strong>Patentes</strong><small>Organização da corporação</small></div>
+            <button id="newRankBtn" class="small-btn">+ Nova patente</button>
+          </div>
+          <div id="rankEditorList" class="rank-editor-list"></div>
+        </section>
+
+        <section class="editor-panel detail-panel">
+          <div class="panel-title">
+            <div><strong id="editorTitle">Selecione uma patente</strong><small id="editorSubtitle">Edite os dados do grupo</small></div>
+          </div>
+          <div id="rankEditor" class="rank-form hidden">
+            <label>Nome da patente<input id="editRankName"></label>
+            <label>Descrição<input id="editRankDescription"></label>
+            <label>Ícone<input id="editRankIcon" maxlength="8"></label>
+            <div class="members-editor">
+              <div class="members-editor-head"><strong>Integrantes</strong><button id="addMemberBtn" class="small-btn">+ Adicionar</button></div>
+              <div id="memberEditorList"></div>
+            </div>
+            <div class="form-actions">
+              <button id="deleteRankBtn" class="danger-btn">Excluir patente</button>
+              <button id="saveRankBtn" class="primary-btn">Salvar alterações</button>
+            </div>
+          </div>
+          <div id="noSelection" class="no-selection">Escolha uma patente ao lado para começar.</div>
+        </section>
+      </div>
+
+      <div class="admin-footer">
+        <div>
+          <button id="resetBtn" class="ghost-btn">Restaurar dados originais</button>
+          <button id="exportBtn" class="ghost-btn">Exportar backup</button>
+          <label class="ghost-btn file-btn">Importar backup<input id="importInput" type="file" accept=".json" hidden></label>
+        </div>
+        <span>As alterações ficam salvas neste navegador.</span>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
